@@ -1,16 +1,18 @@
 // (BIT ou Fenwick Tre)
-int sum(int k){ // INDEXADA EM 1, SOMA DE 1 ATÉ K
-    int s=0;
+vector<ll> BIT;
+ll sum(int k){ // INDEXADA EM 1, SOMA DE 1 ATÉ K
+    ll s=0;
     while(k>=1){
         s += BIT[k];
         k -= k&-k;
     }
     return s;
 }
-
-void add(int k, int x){ // INDEXADA EM 1, ADICIONA ATUALIZA X NA BIT
+ 
+void add(int k, ll x){ // INDEXADA EM 1, ADICIONA ATUALIZA X NA BIT
     while(k<=n){
         BIT[k] += x;
         k += k&-k;
     }
 }
+ 
