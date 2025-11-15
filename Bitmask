@@ -1,0 +1,16 @@
+// AND:
+(x & y)
+// OR:
+(x | y)
+// XOR:
+(x ^ y)
+// NOT:
+x = ~x (inverte os bits)
+// Deslocamento bits:
+Esquerda: (x << k) // anexa k bits zero ao número (corresponde a multiplicar x por 2^k)
+Direita: (x >> k) // remove os k últimos bits do número (corresponde a dividir x por 2^k (arredonda p/ baixo))
+// Funções adicionais:
+__builtin_clz(x) : conta o núm de zeros no início do número (lado esquerdo)
+__builtin_ctz(x) : conta o núm de zeros no final do número (lado direito)
+__builtin_popcount(x) : conta o num de uns no número
+__builtin_parity(x) : a paridade do número de uns (1 = impar, 0 = par)
