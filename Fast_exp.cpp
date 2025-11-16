@@ -2,7 +2,7 @@
 ll fexp(ll b, ll e){
     ll res=1;
     while(e){
-        if(e&1) res = (res*b)%MOD // caso não tenha mod, tirar
+        if(e&1) res = (res*b)%MOD; // caso não tenha mod, tirar
         b = (b*b)%MOD;
         e/=2;
     }
