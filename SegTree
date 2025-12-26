@@ -1,6 +1,12 @@
-ll n, t[4*MAXN];
+ll n;
+ll t[4*MAXN];
 
-void build(int a[], int v, int tl, int tr) {
+// Constrói a segtree a partir do array a[0..n-1]
+// v  = nó atual
+// tl = início do intervalo do nó
+// tr = fim do intervalo do nó
+// usar: build(a.data(), 1, 0, n-1);
+void build(ll a[], int v, int tl, int tr) {
     if (tl == tr) {
         t[v] = a[tl];
     } else {
@@ -10,19 +16,22 @@ void build(int a[], int v, int tl, int tr) {
         t[v] = t[v*2] + t[v*2+1];
     }
 }
-
+// Retorna a soma no intervalo [l, r]
+// v  = nó atual
+// tl = intervalo do nó
+// tr = intervalo do nó
 ll sum(int v, int tl, int tr, int l, int r) {
     if (l > r) 
-        return 0; // elemento neutro
+        return 0LL;
     if (l == tl && r == tr) {
         return t[v];
     }
     int tm = (tl + tr) / 2;
     return sum(v*2, tl, tm, l, min(r, tm))
-           + sum(v*2+1, tm+1, tr, max(l, tm+1), r);
+         + sum(v*2+1, tm+1, tr, max(l, tm+1), r);
 }
-
-void update(int v, int tl, int tr, int pos, int new_val) {
+// Atualiza a posição pos para o valor new_val
+void update(int v, int tl, int tr, int pos, ll new_val) {
     if (tl == tr) {
         t[v] = new_val;
     } else {
