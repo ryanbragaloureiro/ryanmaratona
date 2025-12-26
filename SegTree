@@ -20,15 +20,15 @@ void build(ll a[], int v, int tl, int tr) {
 // v  = nó atual
 // tl = intervalo do nó
 // tr = intervalo do nó
-ll sum(int v, int tl, int tr, int l, int r) {
+ll query(int v, int tl, int tr, int l, int r) {
     if (l > r) 
         return 0LL;
     if (l == tl && r == tr) {
         return t[v];
     }
     int tm = (tl + tr) / 2;
-    return sum(v*2, tl, tm, l, min(r, tm))
-         + sum(v*2+1, tm+1, tr, max(l, tm+1), r);
+    return query(v*2, tl, tm, l, min(r, tm))
+         + query(v*2+1, tm+1, tr, max(l, tm+1), r);
 }
 // Atualiza a posição pos para o valor new_val
 void update(int v, int tl, int tr, int pos, ll new_val) {
