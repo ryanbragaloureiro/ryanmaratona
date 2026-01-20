@@ -24,3 +24,23 @@ template<typename T> struct Matrix {
         return res;
     }
 };
+
+// Exemplo fibbonaci:
+using Mat = Matrix<long long>;
+
+long long get_fib(long long n) {
+    if (n == 0) return 0;
+    
+    // 1. Cria a matriz de transição 2x2
+    Mat T(2, 2);
+    T[0][0] = 1; T[0][1] = 1;
+    T[1][0] = 1; T[1][1] = 0;
+
+    // 2. Eleva a potência n
+    T = T ^ n;
+
+    // 3. O resultado F(n) está na posição [0][1] (ou [1][0])
+    // A matriz resultante tem a forma: | F(n+1)  F(n)   |
+    //                                  | F(n)    F(n-1) |
+    return T[0][1];
+}
