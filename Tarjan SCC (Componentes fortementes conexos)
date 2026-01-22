@@ -1,3 +1,10 @@
+/*
+val[u]: tempo de descoberta (1-based). 0 = não visitado.
+comp[u]: ID do SCC ao qual 'u' pertecence [0..ncomps-1];
+Time: contador global de tempo
+ncomps: Quantidade total e SCCs encontrados.
+*/
+
 vector<int> val, comp, stk, cont;
 int Time, ncomps;
 /*
