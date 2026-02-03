@@ -1,0 +1,24 @@
+struct Rect{
+    ll x1,y1,x2,y2;
+
+    void read(){ cin >> x1 >> y1 >> x2 >> y2;}
+
+    ll area(){
+        return (x2-x1)*(y2-y1);
+    }
+    ll intersecao(Rect other){
+        ll overlapx = max(0LL, min(x2,other.x2)- max(x1,other.x1));
+        ll overlapy = max(0LL, min(y2, other.y2)- max(other.y1,y1));
+        return overlapx*overlapy;
+    }
+    // Essa função calcula as COORDENADAS da interseção e retorna um novo Rect
+    Rect operator&(const Rect& other) const {
+        ll nx1 = max(x1, other.x1);
+        ll ny1 = max(y1, other.y1);
+        ll nx2 = min(x2, other.x2);
+        ll ny2 = min(y2, other.y2);
+        // Se não tiver interseção válida, retorna um retangulo zerado
+        if (nx1 >= nx2 || ny1 >= ny2) return {0, 0, 0, 0};
+        return {nx1, ny1, nx2, ny2};
+    }
+};
