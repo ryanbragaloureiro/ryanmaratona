@@ -1,24 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
-#define FOR(i, a, b) for (int i=a; i<(b); i++)
-#define mii map<int, int>
+using ll = long long;
+using vi = vector<int>;
+using vll = vector<ll>;
+using vpii = vector<pair<int, int>>;
+#define FOR(i, a, b) for (int i = a; i < (b); i++)
 #define all(x) x.begin(), x.end()
 #define pb push_back
 #define sz(x) (int)(x).size()
-#define ins insert
-typedef vector<int> vi;
-typedef vector<ll> vll;
-typedef vector<pair<int, int>> vpii;
 
-void solve(){
-    // 
-} 
+void solve() {
+    // Seu código aqui
+}
 
-int main(){
-    ios::sync_with_stdio(false),cin.tie(0);
+int main() {
+    // Otimização de I/O (Fast I/O)
+    ios::sync_with_stdio(false);
+    cin.tie(0);
     // int t; cin >> t;
     // while(t--)
     solve();
+
     return 0;
 }
