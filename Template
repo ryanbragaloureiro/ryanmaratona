@@ -9,14 +9,12 @@ using vpii = vector<pair<int, int>>;
 #define pb push_back
 #define sz(x) (int)(x).size()
 
-void solve() {
-    // Seu código aqui
+void solve(){
+    
 }
 
-int main() {
-    // Otimização de I/O (Fast I/O)
-    ios::sync_with_stdio(false);
-    cin.tie(0);
+int main(){
+    ios::sync_with_stdio(false); cin.tie(0);
     // int t; cin >> t;
     // while(t--)
     solve();
