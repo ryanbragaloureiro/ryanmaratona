@@ -1,0 +1,29 @@
+// Time: O(1)
+//Description: Sliding Window para operações sem inverso (Min, GCD, XOR, Matrizes). Edite a ‘oper‘ e ‘NEUTRO‘.
+struct MinQueue {
+    ll oper(ll a, ll b) { return min(a,b);} // mudar aqui de acordo
+    const ll NEUTRO = 4e18; // mudar aqui de acordo
+    struct Node { ll val, agg; };
+    stack<Node> s1,s2;
+    void push(ll x){
+        ll agg = s1.empty() ? x : oper(s1.top().agg,x);
+        s1.push({x,agg});
+    }
+    void pop(){
+        if(s2.empty()){
+            while(!s1.empty()){
+                ll x = s1.top().val; s1.pop();
+                ll agg = s2.empty() ? x : oper(x,s2.top().agg);
+                s2.push({x,agg});
+            }
+        }
+        if(!s2.empty()) s2.pop();
+    }
+    ll query(){
+        if(s1.empty() && s2.empty()) return NEUTRO;
+        if(s1.empty()) return s2.top().agg;
+        if(s2.empty()) return s1.top().agg;
+        return oper(s2.top().agg, s1.top().agg);
+    }
+    size_t size() { return s1.size() + s2.size(); }
+};
